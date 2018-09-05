@@ -21,15 +21,9 @@
 # Plugin title
 title="PHP Code Fixer"
 
-if command -v composer  1>/dev/null; then
-    bin_dir="$( composer config bin-dir )"
-else
-    bin_dir="vendor/bin"
-fi
-
 # Possible command names of this tool
 local_command="php-cs-fixer.phar"
-vendor_command="${bin_dir}/php-cs-fixer"
+vendor_command="php-cs-fixer"
 global_command="php-cs-fixer"
 
 # Print a welcome and locate the exec for this tool

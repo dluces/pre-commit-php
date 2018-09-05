@@ -22,10 +22,11 @@ check_args_flag_all='all'
 check_args_flag_first='first'
 check_all=true
 
-# Echo Colors
-msg_color_magenta='\e[1;35m'
-msg_color_yellow='\e[0;33m'
-msg_color_none='\e[0m' # No Color
+# Print a welcome and locate the exec for this tool
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/helpers/colors.sh
+source $DIR/helpers/formatters.sh
+source $DIR/helpers/welcome.sh
 
 # Where to stop looking for file paths in the argument list
 arg_lookup_start=1
@@ -50,8 +51,7 @@ while getopts ":s:" optname
     esac
   done
 
-# Loop through the list of paths to run php lint against
-echo -en "${msg_color_yellow}Begin PHP Linter ...${msg_color_none} \n"
+echo -e "${txtgrn}  php -l${txtrst}"
 
 parse_error_count=0
 for path in ${*:$arg_lookup_start}
@@ -69,7 +69,7 @@ do
 done;
 
 if [ "$php_errors_found" = true ]; then
-    echo -en "${msg_color_magenta}$parse_error_count${msg_color_none} ${msg_color_yellow}PHP Parse error(s) were found!${msg_color_none} \n"
+    echo -en "${txtred}$parse_error_count PHP Parse error(s) were found!${txtrst}\n"
     exit 1
 fi
 

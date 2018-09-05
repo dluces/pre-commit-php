@@ -13,44 +13,30 @@
 # Arguments
 # - None
 
-# Echo Colors
-msg_color_magenta='\e[1;35m'
-msg_color_yellow='\e[0;33m'
-msg_color_none='\e[0m' # No Color
+# Possible command names of this tool
+local_command="phpcbf.phar"
+vendor_command="phpcbf"
+global_command="phpcbf"
 
-# Loop through the list of paths to run PHP Code Beautifier and Fixer against
-echo -en "${msg_color_yellow}Begin PHP Code Beautifier and Fixer ...${msg_color_none} \n"
-phpcbf_local_exec="phpcbf.phar"
-phpcbf_command="php $phpcbf_local_exec"
+# Print a welcome and locate the exec for this tool
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $DIR/helpers/colors.sh
+source $DIR/helpers/formatters.sh
+source $DIR/helpers/welcome.sh
+source $DIR/helpers/locate.sh
 
-# Check vendor/bin/phpunit
-phpcbf_vendor_command="vendor/bin/phpcbf"
-phpcbf_global_command="phpcbf"
-if [ -f "$phpcbf_vendor_command" ]; then
-	phpcbf_command=$phpcbf_vendor_command
-else
-    if hash phpcbf 2>/dev/null; then
-        phpcbf_command=$phpcbf_global_command
-    else
-        if [ -f "$phpcbf_local_exec" ]; then
-            phpcbf_command=$phpcbf_command
-        else
-            echo "No valid PHP Code Beautifier and Fixer executable found! Please have one available as either $phpcbf_vendor_command, $phpcbf_global_command or $phpcbf_local_exec"
-            exit 1
-        fi
-    fi
-fi
-
-phpcbf_files_to_check="${@:2}"
-phpcbf_args=$1
+files="${@:2}"
+args=$1
 # Without this escape field, the parameters would break if there was a comma in it
-phpcbf_command="$phpcbf_command $phpcbf_args $phpcbf_files_to_check"
+full_command="$exec_command $args $files"
 
-echo "Running command $phpcbf_command"
-command_result=`eval $phpcbf_command`
-if [[ $command_result =~ ERROR ]]
-then
-    echo -en "${msg_color_magenta}Errors detected by PHP Code Beautifier and Fixer ... ${msg_color_none} \n"
+# Run the command
+echo -e "${txtgrn}  $full_command${txtrst}"
+
+command_result=`eval $full_command`
+
+if [ $? -ne 0 ]; then
+    echo -en "${txtred}Errors detected by PHP Code Beautifier and Fixer${txtrst}\n"
     echo "$command_result"
     exit 1
 fi
