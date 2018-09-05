@@ -2,6 +2,20 @@
 
 All notable changes will be documented in this file. Guidelines on the format and styleguide for this changelog can be found [here](http://keepachangelog.com/)
 
+##  [1.4.0] - 2018-09-04
+
+### Added
+
+* Support for composer's bin-dir config for vendor directory
+
+### Fixed
+
+* Fixed locate.sh to work with all hooks
+
+### Changed
+
+* All hooks now follow php-cs-fixer.sh pattern using helpers
+
 ##  [1.3.0] - 2017-08-02
 
 ### Changed
