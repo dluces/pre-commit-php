@@ -7,6 +7,19 @@
 # Final location of the executable that we found by searching
 exec_command=""
 
+# Detect composer's vendor directory
+if command -v composer  1>/dev/null; then
+    bin_dir="$( composer config bin-dir 2>/dev/null )"
+
+    if [ $? -ne 0 ]; then
+        bin_dir="vendor/bin"
+    fi
+else
+    bin_dir="vendor/bin"
+fi
+
+vendor_command="${bin_dir}/${vendor_command}"
+
 # A phar file will need to be called by php
 prefixed_local_command="php $local_command"
 
