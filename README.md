@@ -8,7 +8,7 @@ Just add to your `.pre-commit-config.yaml` file with the following
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-lint
   - id: php-unit
@@ -27,7 +27,7 @@ Just add to your `.pre-commit-config.yaml` file with the following
 ```yaml
 <<<<<<< HEAD
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-lint
 ```
@@ -38,7 +38,7 @@ A bash script that runs `php -l` against stage files that are php. Assumes `php`
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-lint-all
 ```
@@ -50,7 +50,7 @@ A systems hook that just runs `php -l` against stage files that have the `.php` 
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-unit
 ```
@@ -66,7 +66,7 @@ Note in its current state, it will run the whole PHPUnit test as along as `.php`
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-cs
     files: \.(php)$
@@ -85,7 +85,7 @@ If you have multiple standards or a comma in your `args` property, escape the co
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-cs
     files: \.(php)$
@@ -101,7 +101,7 @@ If you have multiple standards or a comma in your `args` property, escape the co
 
 ```yaml
 - repo: https://github.com/digitalpulp/pre-commit-php.git
-  sha: 1.3.0
+  sha: 1.4.0
   hooks:
   - id: php-cs
     files: \.(php)$
@@ -113,7 +113,7 @@ To install PHP Codesniffer (phpcs & phpcbf), follow the [recommended steps here]
 ## php-cs-fixer
 ```yaml
 -- repo: https://github.com/digitalpulp/pre-commit-php.git
-   sha: 1.3.0
+   sha: 1.4.0
   hooks:
   - id: php-cs-fixer
     files: \.(php)$
