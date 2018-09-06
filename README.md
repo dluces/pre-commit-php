@@ -1,5 +1,8 @@
 # Digital Pulp - PHP Pre-commit Hooks
 
+Forked from https://github.com/digitalpulp/pre-commit-php
+Forked from https://github.com/hootsuite/pre-commit-php
+
 Pre-commit scripts appropriate for *any* PHP project. These hooks are made as custom plugins under the [pre-commit](http://pre-commit.com/#new-hooks) git hook framework.
 
 # Setup
@@ -7,7 +10,7 @@ Pre-commit scripts appropriate for *any* PHP project. These hooks are made as cu
 Just add to your `.pre-commit-config.yaml` file with the following
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-lint
@@ -26,7 +29,7 @@ Just add to your `.pre-commit-config.yaml` file with the following
 
 ```yaml
 <<<<<<< HEAD
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-lint
@@ -37,7 +40,7 @@ A bash script that runs `php -l` against stage files that are php. Assumes `php`
 ## php-lint-all
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-lint-all
@@ -49,7 +52,7 @@ A systems hook that just runs `php -l` against stage files that have the `.php` 
 
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-unit
@@ -65,7 +68,7 @@ Note in its current state, it will run the whole PHPUnit test as along as `.php`
 ## php-cs
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-cs
@@ -84,7 +87,7 @@ If you have multiple standards or a comma in your `args` property, escape the co
 ## php-cbf
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-cs
@@ -100,7 +103,7 @@ The `args` property in your hook declaration can be used for pass any valid PHP 
 If you have multiple standards or a comma in your `args` property, escape the comma character like so
 
 ```yaml
-- repo: https://github.com/digitalpulp/pre-commit-php.git
+- repo: https://github.com/dluces/pre-commit-php.git
   sha: 1.4.0
   hooks:
   - id: php-cs
@@ -112,7 +115,7 @@ To install PHP Codesniffer (phpcs & phpcbf), follow the [recommended steps here]
 
 ## php-cs-fixer
 ```yaml
--- repo: https://github.com/digitalpulp/pre-commit-php.git
+-- repo: https://github.com/dluces/pre-commit-php.git
    sha: 1.4.0
   hooks:
   - id: php-cs-fixer
